@@ -7,17 +7,17 @@ from datetime import datetime, timedelta
 # Set the serial port to the same serial port you uploaded the arduino sketch to
 # In the Arduino IDE, click "Tools > Serial Port"
 # SERIAL_PORT = "/dev/tty.usbserial-A70064Mh"
-SERIAL_PORT = "/dev/tty.usbserial-AH00PP05"
+SERIAL_PORT = "COM3"
 SERIAL_BAUD = 115200
 
 # Don"t send more than one message every 30 minutes
 SENSOR_INTERVAL = timedelta(minutes=30)
 
-SMS_FROM = "YOUR TELAPI NUMBER" # Make sure this is a number on telapi.com or you'll get charged extra for spoofing
-SMS_TO = "YOUR CELL PHONE NUMBER"
-SMS_BODY = "ALERT! Your Arduino just detected motion!"
-TELAPI_ACCOUNT_SID = "YOUR TELAPI ACCOUNT SID"
-TELAPI_TOKEN = "YOUR TELAPI ACCOUNT TOKEN"
+SMS_FROM = "530-745-6834" # Make sure this is a number on telapi.com or you'll get charged extra for spoofing
+SMS_TO = "208-409-9524"
+SMS_BODY = "SOMEONE IS FUCKING WITH YO SHIT!"
+TELAPI_ACCOUNT_SID = "AC6416a6b679ca4acd8783fcfcc737692c"
+TELAPI_TOKEN = "5a66dd5f3efc4df29a57d9388669eb69"
 
 # Try to import TELAPI_ACCOUNT_SID and such from settings_local.py, if it exists
 try:
@@ -25,7 +25,7 @@ try:
 except ImportError:
     pass
 
-TELAPI_SMS_URL = "https://api.telapi.com/2011-07-01/Accounts/%s/SMS/Messages" % TELAPI_ACCOUNT_SID
+TELAPI_SMS_URL = "https://api.telapi.com/v1/Accounts/%s/SMS/Messages" % TELAPI_ACCOUNT_SID
 
 # Start the server
 if __name__ == "__main__":
